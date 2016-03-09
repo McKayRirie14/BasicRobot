@@ -28,7 +28,7 @@ public class EV3Bot
 		
 		public EV3Bot()
 		{
-			this.botMessage = "Jared codes JohnBot";
+			this.botMessage = "McKay's coded Bot";
 			this.xPosition = 50;
 			this.yPosition = -50;
 			this.waitTime = 4000;
