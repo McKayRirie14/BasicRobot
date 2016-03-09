@@ -116,6 +116,26 @@ public class EV3Bot
 			
 		}
 		
+	public void driveAround()
+	{
+		while(LocalEV3.get().getKeys().waitForAnyPress() != LocalEV3.get().ID_ESCAPE)
+		{
+			double distanc = (Math.random() * 100) % 23;
+			double angle = (Math.random() * 360);
+			boolean isPositive = ((int) (Math.random() * 2) % 2 == 0 );
+			distanceSensor.fetchSameple(ultrasonicSamples, 0);
+			if(ultrasonicSamples[0] < 17)
+			{
+				botPilot.travel(-distance);
+				botPilot.rotate(angle);
+			}
+			else
+			{
+				botPilot.rotate(-angle);
+				botPilot.travel(distance);
+			}
+		}
+	}
 		
 		private void displayMessage() 
 		{
