@@ -1,10 +1,5 @@
+package botController;
 
-//Controller
-
-package bot.controller;
-
-import lejos.hardware.lcd.LCD;
-import lejos.utility.Delay;
 import Bot.model.EV3Bot;
 
 public class BotController
@@ -25,11 +20,8 @@ public class BotController
 	}
 
 	public void start()
-
 	{
-		//LCD.drawString(message,xPosition,yPosition);
-
-		//Delay.msDelay(waitTime);
+		
 	}
 	
 	public String getMessage()

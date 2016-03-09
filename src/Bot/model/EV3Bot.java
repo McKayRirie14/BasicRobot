@@ -1,20 +1,16 @@
-package EV3Bot.java;
+package Bot.model;
 
-public class EV3Bot 
-{
-	package Bot.model;
+import lejos.robotics.chassis.Wheel;
+import lejos.robotics.chassis.WheeledChassis;
+import lejos.robotics.navigation.MovePilot;
+import lejos.hardware.ev3.LocalEV3;
+import lejos.hardware.lcd.LCD;
+import lejos.hardware.motor.Motor;
+import lejos.hardware.sensor.EV3TouchSensor;
+import lejos.hardware.sensor.EV3UltrasonicSensor;
+import lejos.utility.Delay;
 
-	import lejos.robotics.chassis.Wheel;
-	import lejos.robotics.chassis.WheeledChassis;
-	import lejos.robotics.navigation.MovePilot;
-	import lejos.hardware.ev3.LocalEV3;
-	import lejos.hardware.lcd.LCD;
-	import lejos.hardware.motor.Motor;
-	import lejos.hardware.sensor.EV3TouchSensor;
-	import lejos.hardware.sensor.EV3UltrasonicSensor;
-	import lejos.utility.Delay;
-
-	public class EV3Bot {
+public class EV3Bot {
 		
 		private String botMessage;
 		private int xPosition;
@@ -118,12 +114,12 @@ public class EV3Bot
 		
 	public void driveAround()
 	{
-		while(LocalEV3.get().getKeys().waitForAnyPress() != LocalEV3.get().ID_ESCAPE)
+		while(LocalEV3.get().getKeys().waitForAnyPress() != LocalEV3.get().getKeys().ID_ESCAPE)
 		{
-			double distanc = (Math.random() * 100) % 23;
+			double distance = (Math.random() * 100) % 23;
 			double angle = (Math.random() * 360);
 			boolean isPositive = ((int) (Math.random() * 2) % 2 == 0 );
-			distanceSensor.fetchSameple(ultrasonicSamples, 0);
+			distanceSensor.fetchSample(ultrasonicSamples, 0);
 			if(ultrasonicSamples[0] < 17)
 			{
 				botPilot.travel(-distance);
@@ -151,4 +147,3 @@ public class EV3Bot
 		}
 		
 	}
-}
